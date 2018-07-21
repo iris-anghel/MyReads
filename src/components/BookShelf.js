@@ -4,7 +4,7 @@ import Book from './Book'
 // step 2: render the next item, a bookshelf. Since it only needs a render method, create it as a normal function
 const BookShelf = (props) => {
 
-    const {title, shelf, books, onChangeShelf} = props  
+    const {title, shelf, books, onChangeBookShelf} = props  
        
     return (
         <div className="bookshelf">
@@ -18,7 +18,7 @@ const BookShelf = (props) => {
                             <Book 
                                 book={book}
                                 shelf={shelf}
-                                onChangeShelf={onChangeShelf}
+                                onChangeBookShelf={onChangeBookShelf}
                             />
                         </li>
                     ))}
