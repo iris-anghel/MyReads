@@ -7,29 +7,31 @@ import * as BooksAPI from './BooksAPI'
 
 // import all components and render them
 class BooksApp extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            books: []
-        }
+    state = {
+        books: []
     }
-    
+
     // fetch external data from the BooksAPI using getAll method and return a promise
     componentDidMount() {
         BooksAPI.getAll().then((books) => {
             this.setState({books})
+        }).catch( () => {
+            console.log('An error occured while fetching data from BooksAPI')
         })
     }
 
-    // handle the books' shelf change, use the update method and return a promise
+    //handle the books' shelf change, use the update method and return a promise
     onChangeBookShelf = (book, shelf) => {
         book.shelf = shelf
         BooksAPI.update(book, shelf)
             .then( () => {
                 this.setState({
                     books: this.state.books.filter( (item) => item.id !== book.id).concat([book])})
-            })  
-    }
+            }).catch( () => {
+                console.log('An error occured while updating BooksAPI')
+            })
+    } // I think this is not ok when adding a new book
+
 
     render() {
         return (

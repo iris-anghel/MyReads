@@ -5,14 +5,12 @@ import * as BooksAPI from '../BooksAPI'
 
 // step 4: implement book search
 class BookSearch extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            books: []
-            // query: ''
-        }
+
+    state = {
+        books: []
+        // query: ''
     }
-   
+
     // handle the books' search: use the search method and return a promise
     onSearch = (event) => {        
         let value = event.target.value.trim();
@@ -33,6 +31,8 @@ class BookSearch extends Component {
                         })
                     })
                 }
+            }).catch((response) => {
+                console.log('Please review "SEARCH_TERMS.md" for accepted search terms')
             })
         } else {
             this.setState({
@@ -42,7 +42,6 @@ class BookSearch extends Component {
     }
 
     render() {
-
         const {books} = this.state
         const {onBookShelfChange} = this.props
 
@@ -55,22 +54,21 @@ class BookSearch extends Component {
                             type="text" 
                             placeholder="Search by title or author"
                             onChange={this.onSearch}
-                            //before change of function: onChange={event => {this.onSearch(event.target.value)}}
                         />
                     </div>
                 </div>
 
                 <div className="search-books-results">
-                    <ol className="books-grid">
-                        {books.map(book => (
-                            <li key={book.id}>
-                                <Book
-                                    book={book}
-                                    onBookShelfChange={onBookShelfChange}
-                                />
-                            </li>
-                        ))}
-                    </ol>
+                        <ol className="books-grid">
+                            {books.map(book => (
+                                <li key={book.id}>
+                                    <Book
+                                        book={book}
+                                        onBookShelfChange={onBookShelfChange}
+                                    />
+                                </li>
+                            ))}
+                        </ol>
                 </div>
             </div>
         )
