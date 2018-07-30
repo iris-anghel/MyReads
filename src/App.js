@@ -98,9 +98,13 @@ class BooksApp extends Component {
                                     <Book 
                                         key={i}
                                         book={book}
-                                        onUpdateBook={(book, shelf) => this.updateShelf(book, shelf)}/>
+                                        onUpdateBook={(book, shelf) => this.updateShelf(book, shelf)}
+                                    />
                                 ))}
                             </ol>
+                            {this.state.showBooks.length === 0 && (
+                                <div>No matches. Please review "SEARCH_TERMS" for accepted search terms</div>
+                            )}
                         </div>
 
                     </div>

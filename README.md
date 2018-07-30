@@ -6,7 +6,7 @@ MyReads is a web application that allows us to keep track of the books that:
  * want to read
  * and have read
 
-Every book features a button for shelf change the shelf of the book. 
+Every book features a button for changing the shelf of the book. 
 To add a new book, click the purple `+` button
 
 ![myreads](https://user-images.githubusercontent.com/18640359/43385165-b3307018-93e8-11e8-93a1-37daacdbbe3c.PNG)
