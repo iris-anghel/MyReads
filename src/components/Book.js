@@ -1,45 +1,63 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-// step 1: render the most basic item, a book. Since it only needs a render method, create it as a normal function
-// TODO: maybe make the shelf changer a separate component
-const Book = (props) => {
+// step 1: render the most basic item, a book
 
-    const noCover = 'http://via.placeholder.com/128x193?text=No+Cover';
+class Book extends Component {
+    state = {
+        shelf: 'none'
+    }
 
-    const { book, onChangeBookShelf } = props
+    componentDidMount() {
+        const { book } = this.props;
+        if(book.shelf) {
+          this.setState({ 
+              shelf: book.shelf
+            })
+        }
+      }
+    
+    changeBookShelf = (event) => {
+        this.setState({
+            shelf: event.target.value
+        })
+        this.props.onUpdateBook(this.props.book, event.target.value)
+    }
 
-    return (
-        <div className="book">
-            <div className="book-top">
-                <div className="book-cover" 
-                    style={{ 
-                        width: 128, 
-                        height: 193, 
-                        // backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail})`
-                        backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : noCover })`  
-                    }}>
+    render() {
+
+        const noCover = 'http://via.placeholder.com/128x193?text=No+Cover';
+
+        return (<li>
+            <div className="book">
+                <div className="book-top">
+                    <div className="book-cover" 
+                        style={{ 
+                            width: 128, 
+                            height: 193, 
+                            backgroundImage: `url(${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : noCover })`  
+                        }}>
+                    </div>
+    
+                    <div className="book-shelf-changer">
+                        <select 
+                            onChange={this.changeBookShelf} 
+                            value={this.state.shelf}
+                        >   
+                            <option value="move" disabled>Move to...</option>
+                            <option value="currentlyReading">Currently Reading</option>
+                            <option value="wantToRead">Want to Read</option>
+                            <option value="read">Read</option>
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    
                 </div>
-
-                <div className="book-shelf-changer">
-                    <select
-                        value={book.shelf ? book.shelf : 'none'}
-                        onChange={event => onChangeBookShelf(book, event.target.value)}
-                        // this doesn't work when adding a new book
-                    >
-                        <option value="move" disabled>Move to...</option>
-                        <option value="currentlyReading">Currently Reading</option>
-                        <option value="wantToRead">Want to Read</option>
-                        <option value="read">Read</option>
-                        <option value="none">None</option>
-                    </select>
-                </div>
-
+    
+                <div className="book-title">{this.props.book.title}</div>
+                <div className="book-authors">{this.props.book.authors ? this.props.book.authors.join(', '): ""}</div>
             </div>
-
-            <div className="book-title">{book.title}</div>
-            <div className="book-authors">{book.authors ? book.authors.join(', '): ""}</div>
-        </div>
-    )  
+        </li>)  
+    }
 }
 
-export default Book
+export default Book;

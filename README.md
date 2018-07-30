@@ -9,7 +9,10 @@ MyReads is a web application that allows us to keep track of the books that:
 Every book features a button for shelf change the shelf of the book. 
 To add a new book, click the purple `+` button
 
-### TODO: add app screenshot
+![myreads](https://user-images.githubusercontent.com/18640359/43385165-b3307018-93e8-11e8-93a1-37daacdbbe3c.PNG)
+
+
+![myreadssearch](https://user-images.githubusercontent.com/18640359/43385170-b54516f6-93e8-11e8-90c8-87b8ec074c17.PNG)
 
 ## Getting started
 
@@ -24,7 +27,6 @@ To add a new book, click the purple `+` button
 * [npm](https://github.com/npm/cli) or [yarn](https://github.com/yarnpkg/yarn)
 * [Starter template](https://github.com/udacity/reactnd-project-myreads-starter)
 * [React-router-dom package](https://www.npmjs.com/package/react-router-dom)
-* Sort-by --- maybe??
 
 ## What You're Getting
 ```bash
