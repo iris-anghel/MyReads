@@ -1,4 +1,8 @@
-# MyReads Project
+# MyReads
+
+Project 7 - [Front-End Web Developer Nano Degree with Udacity & Google](https://eu.udacity.com/course/front-end-web-developer-nanodegree--nd001)
+
+## Project overview
 
 MyReads is a web application that allows us to keep track of the books that:
 
@@ -8,11 +12,6 @@ MyReads is a web application that allows us to keep track of the books that:
 
 Every book features a button for changing the shelf of the book. 
 To add a new book, click the purple `+` button
-
-![myreads](https://user-images.githubusercontent.com/18640359/43385165-b3307018-93e8-11e8-93a1-37daacdbbe3c.PNG)
-
-
-![myreadssearch](https://user-images.githubusercontent.com/18640359/43385170-b54516f6-93e8-11e8-90c8-87b8ec074c17.PNG)
 
 ## Getting started
 
@@ -60,6 +59,12 @@ To simplify your development process, a backend server was provided. The provide
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+
+![myreads](https://user-images.githubusercontent.com/18640359/43385165-b3307018-93e8-11e8-93a1-37daacdbbe3c.PNG)
+
+
+![myreadssearch](https://user-images.githubusercontent.com/18640359/43385170-b54516f6-93e8-11e8-90c8-87b8ec074c17.PNG)
+
 
 ## Create React App
 
